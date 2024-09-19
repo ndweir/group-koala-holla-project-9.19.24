@@ -33,4 +33,16 @@ function saveKoala(event){
     });
 }
 
+function updateKoala(koalaId) {
+
+  
+  
+  axios.put(`/koalas/${koalaId}`).then(response => {
+      getKoalas();
+  }).catch((error) => {
+      console.log('Error', error);
+      alert('Something went wrong');
+  });
+}
+
 getKoalas();
