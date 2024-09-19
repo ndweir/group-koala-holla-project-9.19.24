@@ -3,11 +3,6 @@ const router = express.Router();
 
 const pool = require('../module/pool.js')
 
-const Swal = require('../module/sweetalert.js')
-
-document.querySelector('#deleteButton').addEventListener()
-
-
 // GET
 router.get('/', (req, res) => {
     let queryText = 'SELECT * FROM koalas ORDER BY "name";';
