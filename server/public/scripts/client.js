@@ -6,6 +6,7 @@ function getKoalas(){
       url: '/koalas'
     }).then(function(response) {
       console.log('getKoalas() was called')
+      renderKoala(response.data)
     }).catch(function(error){
       console.log('error in GET', error);
     });
@@ -35,10 +36,9 @@ function saveKoala(event){
 
 function updateKoala(koalaId) {
 
-  
-  
   axios.put(`/koalas/${koalaId}`).then(response => {
       getKoalas();
+      
   }).catch((error) => {
       console.log('Error', error);
       alert('Something went wrong');
@@ -46,3 +46,49 @@ function updateKoala(koalaId) {
 }
 
 getKoalas();
+
+
+function renderKoala(koalaList) {
+  let koalaTableBody = document.querySelector("#viewKoalas")
+  koalaTableBody.innerHTML = '';
+  // Loop over each song and append data to the DOM
+  for (let koala of koalaList) {
+
+  if(koala.ready_to_transfer === false){
+    koalaTableBody.innerHTML += `
+    <tr>
+        <td>${koala.name}</td>
+        <td>${koala.age}</td>
+        <td>${koala.favorite_color}</td>
+        <td> ${koala.ready_to_transfer}</td>
+        <td>${koala.notes}</td>
+         <td>
+            <button onClick="updateKoala(${koala.id})">Ready for Transfer</button>
+        </td>
+        <td>
+            <button onClick="deleteKoala(${koala.id})">Delete</button>
+        </td>
+    </tr>
+`;
+
+  } else {
+    koalaTableBody.innerHTML += `
+    <tr>
+        <td>${koala.name}</td>
+        <td>${koala.age}</td>
+        <td>${koala.favorite_color}</td>
+        <td> ${koala.ready_to_transfer}</td>
+        <td>${koala.notes}</td>
+        <td><button style = "visibility: hidden"></button></td>
+        <td>
+            <button onClick="deleteKoala(${koala.id})">Delete</button>
+        </td>
+    </tr>
+`;
+  }
+  }
+}
+
+function deleteKoala(){
+
+}
