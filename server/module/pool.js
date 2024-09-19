@@ -1,6 +1,6 @@
 const pg = require('pg')
 
-const pool = new pg.pool({
+const pool = new pg.Pool({
     database: 'koala_database',
     host: 'localhost',
     port: 5432
