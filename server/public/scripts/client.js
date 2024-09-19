@@ -66,7 +66,7 @@ function renderKoala(koalaList) {
             <button onClick="updateKoala(${koala.id})">Ready for Transfer</button>
         </td>
         <td>
-            <button onClick="deleteKoala(${koala.id})">Delete</button>
+            <button type="button" class="deleteButton" onClick="deleteKoala(${koala.id})">Delete</button>
         </td>
     </tr>
 `;
@@ -81,7 +81,7 @@ function renderKoala(koalaList) {
         <td>${koala.notes}</td>
         <td><button style = "visibility: hidden"></button></td>
         <td>
-            <button onClick="deleteKoala(${koala.id})">Delete</button>
+            <button type="button" class="deleteButton" onClick="deleteKoala(${koala.id})">Delete</button>
         </td>
     </tr>
 `;
