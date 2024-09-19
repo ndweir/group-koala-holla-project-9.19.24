@@ -20,6 +20,34 @@ router.get('/', (req, res) => {
 });
 
 // POST
+// name	favorite_color	age	ready_to_transer	notes
+
+router.post('/', (req, res) => {
+    console.log('req.body', req.body);
+    const newKoala = req.body
+
+    const queryText = `
+        INSERT INTO "koalas"("name", "favorite_color", "age", "ready_to_transfer", "notes") 
+        VALUES
+            ($1, $2, $3, $4, $5);
+    `    
+
+    let params = [newKoala.name, newKoala.favorite_color, newKoala.age, newKoala.ready_to_transfer, newKoala.notes]
+    console.log("queryText for POST /koalas", queryText)
+
+  //  res.sendStatus(200);
+
+    pool.query(queryText, params)
+        .then((result) => {
+            res.sendStatus(201)
+        })
+        .catch((err) => {
+            console.log("Error making POST query for new song", err)
+            res.sendStatus(500)
+        })
+
+});
+
 
 
 // PUT
