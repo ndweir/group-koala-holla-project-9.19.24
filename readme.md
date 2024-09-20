@@ -1,53 +1,45 @@
-This must stop:
----------------
-![Think of the Koalas!](https://i.makeagif.com/media/8-22-2014/GO_DT4.gif)
+# KOALA HOLLA
 
+## Description
 
-Koala Holla
-===========
+Our goal with this project was to create a CRUD app to track the client's koalas. This app has the ability to add new koalas, delete koalas, mark koalas ready to be transferred, and to store all this information on a database.
 
-Our client, Koala Holla (1976 Llama Comma Drive, Walla Walla WA) is a non-profit dedicated to the ethical transitioning of koalas from the outdoors (whereupon they may be rained) to urban areas where roofs exist. Your team has been hired to build a web app to handle their terrarium residents.
+## Screen Shot
 
-Technologies
-------------
-* Node
-* Express
-* SQL
+![Koala Holla Interface](/koala_holla.png)
 
-Client needs
-------------
-Koala Holla has provided a table of their current residents:
+## Prerequisites
 
-| id | name    | favorite_color | age | ready_to_transer | notes                            |
-|----|---------|--------|-----|------------------|----------------------------------|
-| 1  | Scotty  | Red      | 4   | Y                | Born in Guatemala                |
-| 2  | Jean    | Green      | 5   | Y                | Allergic to lots of lava         |
-| 3  | Ororo   | Yellow      | 7   | N                | Loves listening to Paula (Abdul) |
-| 4  | K'Leaf   | Purple      | 15  | N                | Never refuses a treat.                  |
-| 5  | Charlie | Orange      | 9   | Y                | Favorite band is Nirvana         |
-| 6  | Betsy   | Blue      | 4   | Y                | Has a pet iguana                 |
+<li>Node.js</li>
 
-They need the ability to add a Koala to the database. Make a form with the appropriate info. Save the koala in the database. Think about what data types you'll be needing for your table columns.  
+## Installation
 
-They need the ability for mark a Koala ready for transfer. Each koala in your UI needs a button in that reads 'Ready for Transfer'. When the user clicks on the button, it should update the database for the specific Koala. The 'Ready for Transfer' button should only appear for Koalas that haven't yet been marked ready for transfer.
+<ol>
+<li>Create a database named <code>koala_database</code>,</li>
+<li>The queries in the database.sql file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on Postgres, so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries,</li>
+<li>Open up your editor of choice and run an <code>npm install</code></li>
+<li>Run <code>npm start</code> in your terminal</li>
+<li>Open your browser of choice and visit <a href="http://localhost:5001/">localhost:5001</a></li>
+</ol>
 
-Delivery
---------
-Upon completion of the project you'll need to provide not only the source (via GitHub url), but also instructions on how the database table should be set up. This can be in a simple `database.sql` file in the repo.
+## Usage
 
-### STRETCH GOALS
+<ul>
+<li>Enter koala information into the inputs and click "Add Koala" to add a new koala</li>
+<li>Please note that "Transfer" takes a boolean value</li>
+<li>Click the "Ready for Transfer" button to mark a koala ready to be transferred</li>
+<li>Click the "Delete" button to delete a koala from the table</li>
+</ul>
 
-1. Ability to delete a specific Koala from the database.  
-2. Confirmation dialog before deleting (research SweetAlert).
-3. Ability to make koalas toggle between ready for transfer and NOT ready for transfer.
-4. Add form validation, additional styling and a README.md.
-5. Client side filtering with a text box
-6. Ability to edit other information (Name, Age, Notes) for existing Koalas in the db.
+## Built With
 
+<li>Node.js</li>
+<li>Postgres</li>
+<li>Postico</li>
+<li>Express.js</li>
+<li>Axios.js</li>
+<li>SweetAlert2</li>
 
+## Acknowledgement
 
-### Sample Wireframe
---------
-Your final product may look something like this:
-
-![sample](sample.png)
+Thank you to Prime Digital Academy, Key, and Koalas. 
