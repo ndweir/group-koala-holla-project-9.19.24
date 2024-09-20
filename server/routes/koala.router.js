@@ -3,7 +3,6 @@ const router = express.Router();
 
 const pool = require('../module/pool.js')
 
-
 // GET
 router.get('/', (req, res) => {
     let queryText = 'SELECT * FROM koalas ORDER BY "name";';
