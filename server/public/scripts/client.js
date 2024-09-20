@@ -34,9 +34,11 @@ function saveKoala(event) {
   });
 }
 
-function updateKoala(koalaId) {
+function updateKoala(koalaId, readyToTransfer) {
 
-  axios.put(`/koalas/${koalaId}`).then(response => {
+  let data = {ready_to_transfer: readyToTransfer}
+
+  axios.put(`/koalas/${koalaId}`, data).then(response => {
     getKoalas();
 
   }).catch((error) => {
@@ -63,7 +65,7 @@ function renderKoala(koalaList) {
         <td> ${koala.ready_to_transfer}</td>
         <td>${koala.notes}</td>
          <td>
-            <button onClick="updateKoala(${koala.id})">Ready for Transfer</button>
+            <button onClick="updateKoala(${koala.id}, 'false')">Ready</button>
         </td>
         <td>
             <button type="button" class="deleteButton" onClick="deleteKoala(${koala.id})">Delete</button>
@@ -79,7 +81,9 @@ function renderKoala(koalaList) {
         <td>${koala.favorite_color}</td>
         <td> ${koala.ready_to_transfer}</td>
         <td>${koala.notes}</td>
-        <td><button style = "visibility: hidden"></button></td>
+        <td>
+            <button onClick="updateKoala(${koala.id}, 'true')">Not Ready</button>
+        </td>
         <td>
             <button type="button" class="deleteButton" onClick="deleteKoala(${koala.id})">Delete</button>
         </td>

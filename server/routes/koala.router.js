@@ -50,18 +50,50 @@ router.post('/', (req, res) => {
 // PUT
 
 router.put('/:id', (req, res) => {
-    console.log('req.params', req.params.id);
+    console.log('req.params id', req.params.id);
+    console.log('req.params ready to transfer:    ', req.body.ready_to_transfer)
     let id = req.params.id
-    let sqlText = `UPDATE "koalas"
+
+    if(req.body.ready_to_transfer === 'false'){
+        let sqlText = `UPDATE "koalas"
         SET "ready_to_transfer" = true
         WHERE "id" = $1;`
-    let params =  [id];
-    pool.query(sqlText, params).then( result => {
-        res.sendStatus(204);
-    }).catch(error => {
-        console.log(error)
-        res.sendStatus(500);
-    })
+
+        let params =  [id];
+
+        pool.query(sqlText, params).then( result => {
+            res.sendStatus(204);
+        }).catch(error => {
+            console.log(error)
+            res.sendStatus(500);
+        })
+    } else {
+        let sqlText = `UPDATE "koalas"
+        SET "ready_to_transfer" = false
+        WHERE "id" = $1;`
+
+        let params =  [id];
+
+        pool.query(sqlText, params).then( result => {
+            res.sendStatus(204);
+        }).catch(error => {
+            console.log(error)
+            res.sendStatus(500);
+        })
+    }
+
+    
+
+
+    // let params =  [id];
+
+
+    // pool.query(sqlText, params).then( result => {
+    //     res.sendStatus(204);
+    // }).catch(error => {
+    //     console.log(error)
+    //     res.sendStatus(500);
+    // })
 })
 
 
