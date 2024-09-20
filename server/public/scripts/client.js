@@ -89,6 +89,27 @@ function renderKoala(koalaList) {
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function deleteKoala(koalaId){
   axios.delete(`/koalas/${koalaId}`).then((response) => {
     getKoalas();
