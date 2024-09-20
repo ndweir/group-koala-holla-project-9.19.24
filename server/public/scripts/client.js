@@ -90,26 +90,6 @@ function renderKoala(koalaList) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function deleteKoala(koalaId) {
   Swal.fire({
     title: 'Are you sure you want to delete this poor koala?',
